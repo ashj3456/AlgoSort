@@ -8,6 +8,7 @@ import Insertion from './Algorithms/Insertion.jsx';
 import Bubble from './Algorithms/Bubble.jsx';
 import HeapSort from './Algorithms/HeapSort.jsx';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import logo from '../assets/logo.svg'
 
 function randonInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -49,7 +50,7 @@ export function Sortingv() {
     return (
         <div className='text-white'>
             <div className='flex m-2'>
-                <img className='w-10 h-7 rounded-lg invert-1' src="./src/assets/logo.svg" alt="sort" />
+                <img className='w-10 h-7 rounded-lg invert-1' src={logo} alt="sort" />
                 <span className='font-bold'>&lt;AlgoSort/&gt;</span>
                 <h1 className='text-center w-full p-3 font-bold text-xl'>Welcome To AlgoSort Visualiser</h1>
             </div>
@@ -89,11 +90,11 @@ export function Sortingv() {
 
                 </div>
                 <div className='barc xl:overflow-hidden overflow-x-scroll rounded-lg  p-1 xl:w-[63vw] xl:h-[32vw] h-[50vh] text-center mx-3 my-4'>
-                    {arr.map((name, index) => (                        
-                        <div key={index} className='arrbar'                        
+                    {arr.map((name, index) => (
+                        <div key={index} className='arrbar'
                             style={{
                                 height: `${name}px`,
-                                "--width": `${90/arr.length*5}px`,                                                        
+                                "--width": `${90 / arr.length * 5}px`,
                             }}>
                         </div>
                     ))}
