@@ -49,7 +49,7 @@ export function Sortingv() {
     return (
         <div className='text-white'>
             <div className='flex m-2'>
-                <img className='w-10 h-7 rounded-lg invert-1' src="./src/logo.svg" alt="logo" />
+                <img className='w-10 h-7 rounded-lg invert-1' src="./src/logo.svg" alt="sort" />
                 <span className='font-bold'>&lt;AlgoSort/&gt;</span>
                 <h1 className='text-center w-full p-3 font-bold text-xl'>Welcome To AlgoSort Visualiser</h1>
             </div>
