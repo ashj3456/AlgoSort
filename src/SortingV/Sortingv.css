@@ -1,0 +1,49 @@
+:root {
+    --width: 0;
+}
+
+
+body {
+    background: linear-gradient(179.4deg, rgb(12, 20, 69) -16.9%, rgb(71, 30, 84) 119.9%);
+    
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnn {
+    transition: .3s;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.btnn:hover {
+    box-shadow: 0 0 15px rgb(0, 189, 252);
+}
+
+.arrbar {
+    display: inline-block;
+    word-wrap: break-word;
+    color: rgb(255, 0, 0);
+    background-color: rgb(255, 255, 255);
+    border-radius: 500px;
+    margin: 2px;
+    width: var(--width);
+    /* transition: all .1s; */
+}
+
+.btncontainer {
+    margin: 10px;
+    display: flex;
+    gap: 15px;
+}
+
+@media (max-width: 1200px){
+    .arrbar{
+        width: 5px;
+    }
+}
