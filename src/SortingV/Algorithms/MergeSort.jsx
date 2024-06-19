@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import SortedSignal from './SortedSignal';
 import { counterContext } from '../context/context';
-import stop from './stop.svg'
+import stop from '../../assets/stop.svg'
 function Merge(props) {
     const value = useContext(counterContext)
     const [myInterval, setMyInterval] = useState(0);
@@ -17,7 +17,7 @@ function Merge(props) {
             inter = setInterval(mergeSort, props.speed);
             setMyInterval(inter)
         }
-        else{
+        else {
             alert("Generate New Array First !!!")
         }
     }
@@ -46,6 +46,7 @@ function Merge(props) {
 
                 const onestyle = arrbars[one].style
                 onestyle.height = `${two}px`
+                // onestyle.transition = '.3s'
 
             }
         }

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import SortedSignal from './SortedSignal'
 import { counterContext } from '../context/context';
-import stop from './stop.svg'
+import stop from '../../assets/stop.svg'
 function Bubble(props) {
     const value = useContext(counterContext)
     const [myInterval, setMyInterval] = useState(0);
@@ -13,7 +13,7 @@ function Bubble(props) {
     var i = 0;
 
     function startI() {
-        if(value.count===0){
+        if (value.count === 0) {
             inter = setInterval(bblAnimation, props.speed);
             setMyInterval(inter)
         }
@@ -44,6 +44,8 @@ function Bubble(props) {
                 let temp = parseInt(oneS.height);
                 oneS.height = `${temp2}px`
                 twoS.height = `${temp}px`
+                // oneS.transition = '.3s'
+                // twoS.transition = '.3s'
             }
         }
         i += 1
@@ -51,17 +53,17 @@ function Bubble(props) {
             SortedSignal(arrbars)
             setTimeout(() => {
                 value.setCount((count) => count = 2);
-            },1000);
+            }, 1000);
             clearInterval(inter)
         }
     }
 
 
     function stopI() {
-        if(value.count===1)
+        if (value.count === 1)
             value.setCount((count) => count = 3);
-        for (let i = 0; i < arrc.length; i++) 
-            arrbars[i].style.backgroundColor = 'white'            
+        for (let i = 0; i < arrc.length; i++)
+            arrbars[i].style.backgroundColor = 'white'
         clearInterval(myInterval)
     }
 

@@ -1,27 +1,29 @@
 import React, { useContext, useState } from 'react'
 import SortedSignal from './SortedSignal'
 import { counterContext } from '../context/context';
-import stop from './stop.svg'
+import stop from '../../assets/stop.svg'
 
-function Selection(props) {
+function Selection({ arr, algo, speed }) {
+
     const value = useContext(counterContext)
     const [myInterval, setMyInterval] = useState(0);
-    const arrc = props.arr.slice()
-    const animation = createAnimation(arrc)
-    let n = animation.length
+    const animation = createAnimation(arr)
     const arrbars = document.getElementsByClassName("arrbar");
+    let n = animation.length
     var inter = 0;
     var i = 0;
 
+
     function startI() {
         if (value.count === 0) {
-            inter = setInterval(SelectionAnimation, props.speed);
+            inter = setInterval(SelectionAnimation, speed);
             setMyInterval(inter)
         }
         else {
             alert("Generate New Array First !!!")
         }
     }
+
 
     function SelectionAnimation() {
         value.setCount((count) => count = 1);
@@ -32,8 +34,6 @@ function Selection(props) {
             }
             else if (one === 'c') {
                 arrbars[two].style.backgroundColor = 'rgb(0, 189, 252)'
-                console.log("anup")
-
             }
             else if (one === 'r') {
                 arrbars[two].style.backgroundColor = 'red'
@@ -47,8 +47,11 @@ function Selection(props) {
                 oneS.backgroundColor = 'white'
                 oneS.height = `${temp2}px`
                 twoS.height = `${temp}px`
+                // oneS.transition = '.3s'
+                // twoS.transition = '.3s'
             }
         }
+
         i += 1
         if (i == n) {
             SortedSignal(arrbars)
@@ -57,13 +60,13 @@ function Selection(props) {
             }, 1000);
             clearInterval(inter)
         }
-
     }
+
 
     function stopI() {
         if (value.count === 1)
             value.setCount((count) => count = 3);
-        for (let i = 0; i < arrc.length; i++)
+        for (let i = 0; i < arr.length; i++)
             arrbars[i].style.backgroundColor = 'white'
         clearInterval(myInterval)
     }
@@ -71,7 +74,7 @@ function Selection(props) {
     return (
         <div className='absolute bottom-[55px] text-black font-medium'>
             {
-                props.algo === "selection" && <div className='flex flex-col justify-between'>
+                algo === "selection" && <div className='flex flex-col justify-between'>
                     <button className='rounded-3xl w-48 p-2 px-5 my-5 btnn bg-green-500' onClick={() => startI()}>Start Selection Sort !</button>
                     <button className='flex rounded-3xl w-48 p-2 px-12 btnn bg-red-500 border' onClick={() => stopI()}>
                         <img className='mt-1 mr-2' src={stop} alt="" />

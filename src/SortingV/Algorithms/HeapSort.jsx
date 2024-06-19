@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { counterContext } from '../context/context';
-import stop from './stop.svg'
+import stop from '../../assets/stop.svg'
 import SortedSignal from './SortedSignal';
 
 function HeapSort(props) {
@@ -39,6 +39,8 @@ function HeapSort(props) {
                 let temp = parseInt(oneS.height);
                 oneS.height = `${temp2}px`
                 twoS.height = `${temp}px`
+                // oneS.transition = '.3s'
+                // twoS.transition = '.3s'
             }
         }
         i += 1

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import SortedSignal from './SortedSignal';
 import { counterContext } from '../context/context';
-import stop from './stop.svg'
+import stop from '../../assets/stop.svg'
 
 function QuickSort(props) {
     const value = useContext(counterContext)
@@ -37,6 +37,8 @@ function QuickSort(props) {
                 let temp2 = parseInt(onestyle.height);
                 twostyle.height = `${temp2}px`
                 onestyle.height = `${temp}px`
+                // onestyle.transition = '.3s'
+                // twostyle.transition = '.3s'
             }
             else if (flag) {
                 const onestyle = arrbars[one].style

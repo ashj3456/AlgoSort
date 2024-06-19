@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react'
 import SortedSignal from './SortedSignal'
 import { counterContext } from '../context/context';
-import stop from './stop.svg'
-function Insertion(props) {
+import stop from '../../assets/stop.svg'
+
+
+function Insertion({ arr, algo, speed, updateArr }) {
+
   const value = useContext(counterContext)
-  const arrc = props.arr.slice()
+  const arrc = arr.slice()
   const animation = insertionSort(arrc, arrc.length)
   const arrbars = document.getElementsByClassName("arrbar")
   const [myInterval, setMyInterval] = useState(0);
@@ -12,15 +15,20 @@ function Insertion(props) {
   var inter = 0;
   var i = 0;
 
+
+
   function startI() {
+    console.log(arr)
     if (value.count === 0) {
-      inter = setInterval(InsertionAnimation, props.speed);
+      inter = setInterval(InsertionAnimation, speed);
       setMyInterval(inter)
     }
     else {
       alert("Generate New Array First !!!")
     }
   }
+
+
 
   function InsertionAnimation() {
     value.setCount((count) => count = 1);
@@ -42,6 +50,8 @@ function Insertion(props) {
         oneS.backgroundColor = 'white'
         oneS.height = `${temp2}px`
         twoS.height = `${temp}px`
+        // oneS.transition = '.3s'
+        // twoS.transition = '.3s'
 
       }
       else if (one === 'b') {
@@ -74,7 +84,7 @@ function Insertion(props) {
   return (
     <div className='absolute bottom-[55px] text-black font-medium'>
       {
-        props.algo === "insertion" && <div className='flex flex-col justify-between'>
+        algo === "insertion" && <div className='flex flex-col justify-between'>
           <button className='rounded-3xl w-48 p-2 px-5 my-5 btnn bg-green-500' onClick={() => startI()}>Start Insertion Sort !</button>
           <button className='flex rounded-3xl w-48 p-2 px-12 btnn bg-red-500 border' onClick={() => stopI()}>
             <img className='mt-1 mr-2' src={stop} alt="" />
